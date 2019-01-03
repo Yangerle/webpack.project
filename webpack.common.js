@@ -13,6 +13,7 @@ module.exports = {
 	],
 	output: {
 		filename: '[name].bundle.js',
+		chunkFilename: '[name].bundle.js',//它决定非入口 chunk 的名称(此项会对缓存配置有影响，先注释掉)
 		path: path.resolve(__dirname, 'dist')
 	},
 	optimization: {
