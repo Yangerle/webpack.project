@@ -1,5 +1,6 @@
 import printMe from './print.js';
 import './styles.css';
+import _ from 'lodash';
 
 
 function component() {
