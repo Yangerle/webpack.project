@@ -1,5 +1,5 @@
 import printMe from './print.js';
-
+import './styles.css';
 
 
 function component() {
