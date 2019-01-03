@@ -1,5 +1,5 @@
-const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
+const webpack = require('webpack');
 
 module.exports = {
 	entry: {
@@ -8,18 +8,22 @@ module.exports = {
 	},
 	plugins: [
 		new HtmlWebpackPlugin({
-			title: 'haha'
-		})
+			title: 'Caching'
+		}),
+		new webpack.HashedModuleIdsPlugin(),
 	],
-	output: {
-		filename: '[name].bundle.js',
-		chunkFilename: '[name].bundle.js',//它决定非入口 chunk 的名称(此项会对缓存配置有影响，先注释掉)
-		path: path.resolve(__dirname, 'dist')
-	},
 	optimization: {
 		splitChunks: {
-			chunks: 'all'
-		}
+			chunks: 'all',
+			cacheGroups: {
+				vendor: {
+					test: /[\\/]node_modules[\\/]/,
+					name: 'vendors',
+					chunks: 'all'
+				}
+			}
+		},
+		runtimeChunk: 'single'
 	},
 	module: {
 		rules: [
