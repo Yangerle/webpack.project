@@ -11,6 +11,11 @@ module.exports = {
 			title: 'Caching'
 		}),
 		new webpack.HashedModuleIdsPlugin(),
+		new webpack.ProvidePlugin({
+			// _: 'lodash',
+			join: ['lodash', 'join']
+
+		}),
 	],
 	optimization: {
 		splitChunks: {
@@ -27,6 +32,11 @@ module.exports = {
 	},
 	module: {
 		rules: [
+			{
+				test: require.resolve('./src/globals.js'),
+				use: 'exports-loader?file,parse=helpers.parse'
+			},
+
 			//JSON 支持实际是内置的
 			{
 				test:/\.css$/,

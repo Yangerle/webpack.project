@@ -1,14 +1,20 @@
 // import printMe from './print.js';
 import './styles.css';
-import _ from 'lodash';
+// import _ from 'lodash';
 
+
+import { file, parse } from './globals.js';
+console.log(file)
+console.log(parse)
 
 function component() {
 	var element = document.createElement('div');
 	var btn = document.createElement('button');
 
+	// alert('Hmmm, this probably isn\'t a great idea...')
+	// element.innerHTML =_.join(['Another', 'module', 'loaded!'], ' ')
+	element.innerHTML =join(['Another', 'module', 'loaded!'], ' ')
 
-	element.innerHTML = 'hellowebpack';
 	btn.innerHTML = 'Click me and check the console!';
 	// btn.onclick = printMe;
 
